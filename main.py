@@ -38,13 +38,19 @@ price = Entry(window,width=10)
 price.grid(column=4, row=1)
 total = Label(window, text="TOTAL price")
 total.grid(column=5, row=1)
+
+#TODO add a new row with the previous details
+tree = ttk.Treeview(window)
+
+
 def clicked():
     price_for_one = int(price.get())/100 * int(tax.get()) + int(price.get())
     total_price_for_row = price_for_one * int(count.get())
     total.configure(text= total_price_for_row)
     QR_code.CreateQR("0","0",total_price_for_row,"CZK","")
+    words = [count.get(),description.get(),tax.get(),price.get(),total_price_for_row]
 btn = Button(window, text="Click Me", command=clicked)
-#TODO add a new row with the previous details
+
 btn.grid(column=0, row=1)
 
 window.mainloop()
