@@ -4,7 +4,12 @@ Super cool invoice creator that can even do a QR payments.
 
 Using  PyFPDF
 (docs here https://pyfpdf.readthedocs.io/en/latest/Templates/index.html)
+
+'{:.2f}'.format(int(price_per_item)) -> changes number to look like 0.00
+
 '''
+
+
 
 def Generateinvoice(name,logo,qr):
     from fpdf import Template
