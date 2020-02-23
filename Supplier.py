@@ -18,7 +18,8 @@ company_dic=""
 company_website=""
 company_email=""
 company_phone=""
+logo=""
 
 #yours detail
-name=""
+name="Ridlees"
 

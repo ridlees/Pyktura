@@ -12,6 +12,8 @@ def Eur_CZK(EUR):
     return (round(int(EUR)/Supplier.course))
 
 class Invoice_creator:
+
+    #init should include info about the other "guy"
     
     def __init__(self,code,currency,theme):
         self.code = code
@@ -22,10 +24,13 @@ class Invoice_creator:
         self.theme = theme
 
     #sets the type of invoice (hours for work and items for item selling)
+        
     def chang_theme(self,theme):
         self.theme = theme
+        
     def change_lang(self,language):
         self.currency = language
+        
     #Function to add new items to invoice
     def add(self, item_description, price_per_item, quantity, currency):
         price_total = int(quantity) * float(price_per_item)
@@ -51,7 +56,7 @@ class Invoice_creator:
     def create(self):
         message = input("message for the payer \n")
         QR_code.CreateQR(Supplier.bank, Supplier.bank_code,self.total,self.currency,message)
-        #TODO Add Invoice_body
+        Invoice_body.Generate("img.png",self.code,self.payload)
         
 def help():
     print() #TODO Finish help()
