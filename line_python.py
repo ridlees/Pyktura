@@ -10,7 +10,34 @@ import Supplier
 
 def Eur_CZK(EUR):
     return (round(int(EUR)/Supplier.course))
-
+class buyer:
+    
+    def __init__(self,name,addres,town,postal,ico,dic):
+        self.name = name
+        self.addres = addres
+        self.town = town
+        self.postal = postal
+        self.ico = ico
+        self.dic = dic
+        
+    def cname(self,value):
+        self.name = value
+        
+    def caddres(self,value):
+        self.addres = value
+        
+    def ctown(self,value):
+        self.town = value
+        
+    def cpostal(self,value):
+        self.postal = value
+        
+    def cico(self,value):
+        self.ico = value
+        
+    def cdic(self,value):
+        self.dic = value
+        
 class Invoice_creator:
 
     #init should include info about the other "guy"
@@ -42,8 +69,8 @@ class Invoice_creator:
         self.items = self.items + 1
         
      # to check the current status of invoice
-    def status(self):
-        print(f'The Invoice {self.code} contains: \n Total of {self.items} items in price of {self.total} \n The current payload is: {self.payload}')
+    def status(self,buyer):
+        print(f'The Invoice {self.code} for {buyer.name} at {buyer.addres},{buyer.town},{buyer.postal} IČO is {buyer.ico} and DIČ {buyer.dic} contains: \n Total of {self.items} items in price of {self.total} \n The current payload is: {self.payload}')
         
     # to delete line (on position arg) from invoice
     def delete(self, arg):
@@ -53,10 +80,11 @@ class Invoice_creator:
         self.total = self.total - float(deleted[-1])
         
     # generates pdf of the invoice
-    def create(self):
+    def create(self,buyer):
         message = input("message for the payer \n")
         QR_code.CreateQR(Supplier.bank, Supplier.bank_code,self.total,self.currency,message)
-        Invoice_body.Generate("img.png",self.code,self.payload)
+        Invoice_body.Generate("img.png",self.code,self.payload,buyer)
+    
         
 def help():
     print() #TODO Finish help()
@@ -77,5 +105,5 @@ def main():
 if __name__ == '__main__':
     main()
     invoice = Invoice_creator("00001","CZK","hours")
-    invoice.add("oral",120,5, "CZK")
-    invoice.add("anál", 40, 1, "EUR")
+    invoice.add("fish",120,5, "CZK")
+    invoice.add("chips", 40, 1, "EUR")

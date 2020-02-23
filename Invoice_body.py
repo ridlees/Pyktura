@@ -11,10 +11,11 @@ Using  PyFPDF
 
 
 
-def Generate(qr,code,payload):
+def Generate(qr,code,payload,buyer):
     from fpdf import Template
     import Supplier
     #test implementation
+    print(buyer.name)
 
     elements = [
     {'name':'invoice','type': 'T', 'x1': 0.0, 'y1': 0.0, 'x2': 10.0, 'y2': 30.0, 'font': 'Arial', 'size': 10.0, 'bold': 1, 'italic': 0, 'underline': 1, 'foreground': 0, 'background': 0, 'align': 'I', 'text': 'logo', 'priority': 2, },    
