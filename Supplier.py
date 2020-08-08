@@ -9,15 +9,16 @@ bank_code = "5500"
 course = 27.25
 
 #details of your company
-company_name =""
-company_street = ""
-company_town = ""
-company_postal =""
-company_ico =""
-company_dic=""
-company_website=""
-company_email=""
-company_phone=""
+company_name ="Test"
+company_street = "Veselá 22"
+company_town = "Uhřívěnec"
+company_postal ="065 203"
+company_country = "ČR"
+company_ico ="012931421031"
+company_dic="012931421031"
+company_website="seznam.cz "
+company_email="hubert@seznam.cz"
+company_phone="+420 000 000 000"
 logo=""
 
 #yours detail

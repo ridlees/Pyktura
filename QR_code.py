@@ -23,4 +23,5 @@ def CreateQR(accountNumber,bankCode,amount,currency,message):
     del response
     
 if __name__ == '__main__':
-    CreateQR("123457","5500","10.00","CZK","1")
+    CreateQR("271408171","0300","1000.00","CZK","1")
+#variabilní symbo 333? zjistit co s tím

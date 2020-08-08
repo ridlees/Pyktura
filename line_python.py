@@ -20,6 +20,7 @@ class buyer:
         self.ico = ico
         self.dic = dic
         
+        
     def cname(self,value):
         self.name = value
         
@@ -83,7 +84,7 @@ class Invoice_creator:
     def create(self,buyer):
         message = input("message for the payer \n")
         QR_code.CreateQR(Supplier.bank, Supplier.bank_code,self.total,self.currency,message)
-        Invoice_body.Generate("img.png",self.code,self.payload,buyer)
+        Invoice_body.Generate("img.png",self.code,self.payload,buyer,self.currency)
     
         
 def help():
@@ -107,3 +108,4 @@ if __name__ == '__main__':
     invoice = Invoice_creator("00001","CZK","hours")
     invoice.add("fish",120,5, "CZK")
     invoice.add("chips", 40, 1, "EUR")
+    buyer = buyer("Jan Novák", "Terezie 43", "Ustí", "10800","32123123123","Z812Z38213")
